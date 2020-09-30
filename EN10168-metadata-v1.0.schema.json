@@ -7,7 +7,7 @@
   ],
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://schemas.en10204.io/EN10168-metadata-v1.0.schema.json",
-  "definitions": {
+
       "id": {
         "type": "string"
       },
@@ -18,7 +18,7 @@
       "state": {
         "type": "string",
         "enum": ["draft", "valid", "cancelled"]
-      }
+
   },
   "required": ["id", "state"],
   "additionalProperties": false
