@@ -1,0 +1,27 @@
+{
+  "meta:license": [
+    "Copyright 2020 S1Seven Gmbh. All rights reserved.",
+    "This file is licensed to you under the Apache License, Version 2.0 (the 'License');",
+    "you may not use this file except in compliance with the License. You may obtain a copy",
+    "of the License at http://www.apache.org/licenses/LICENSE-2.0"
+  ],
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.en10204.io/EN10168-metadata-v1.0.schema.json",
+  "definitions": {
+    "metadata": {
+      "id": {
+        "type": "string"
+      },
+      "version": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "state": {
+        "type": "string",
+        "enum": ["draft", "valid", "cancelled"]
+      }
+    }
+  },
+  "required": ["id", "state"],
+  "additionalProperties": false
+}
