@@ -24,7 +24,9 @@
           "type": "string"
         }
       },
-      "required": ["Key"],
+      "required": [
+        "Key"
+      ],
       "additionalProperties": false
     },
     "ChemicalElement": {
@@ -52,7 +54,36 @@
           "maximum": 1
         }
       },
-      "required": ["Symbol", "Actual"],
+      "required": [
+        "Symbol",
+        "Actual"
+      ],
+      "additionalProperties": false
+    },
+    "Tube": {
+      "description": "",
+      "type": "object",
+      "properties": {
+        "Form": {
+          "description": "",
+          "const": "Tube"
+        },
+        "SideLength": {
+          "description": "",
+          "type": "number",
+          "minimum": 0
+        },
+        "WallThickness": {
+          "description": "",
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "Form",
+        "SideLength",
+        "WallThickness"
+      ],
       "additionalProperties": false
     },
     "QuadraticTube": {
@@ -66,15 +97,19 @@
         "SideLength": {
           "description": "",
           "type": "number",
-          "minium": 0
+          "minimum": 0
         },
         "WallThickness": {
           "description": "",
           "type": "number",
-          "minium": 0
+          "minimum": 0
         }
       },
-      "required": ["Form", "SideLength", "WallThickness"],
+      "required": [
+        "Form",
+        "SideLength",
+        "WallThickness"
+      ],
       "additionalProperties": false
     },
     "RectangularTube": {
@@ -88,20 +123,25 @@
         "Width": {
           "description": "",
           "type": "number",
-          "minium": 0
+          "minimum": 0
         },
         "Height": {
           "description": "",
           "type": "number",
-          "minium": 0
+          "minimum": 0
         },
         "WallThickness": {
           "description": "",
           "type": "number",
-          "minium": 0
+          "minimum": 0
         }
       },
-      "required": ["Form", "Width", "Height", "WallThickness"],
+      "required": [
+        "Form",
+        "Width",
+        "Height",
+        "WallThickness"
+      ],
       "additionalProperties": false
     },
     "Pipe": {
@@ -115,16 +155,78 @@
         "SideLength": {
           "description": "",
           "type": "number",
-          "minium": 0
+          "minimum": 0
         },
         "WallThickness": {
           "description": "",
           "type": "number",
-          "minium": 0
+          "minimum": 0
         }
       },
-      "required": ["Form", "SideLength", "WallThickness"],
+      "required": [
+        "Form",
+        "SideLength",
+        "WallThickness"
+      ],
       "additionalProperties": false
+    },
+    "RectangularPipe": {
+      "description": "",
+      "type": "object",
+      "properties": {
+        "Form": {
+          "description": "",
+          "const": "RectangularPipe"
+        },
+        "Width": {
+          "description": "",
+          "type": "number",
+          "minimum": 0
+        },
+        "Height": {
+          "description": "",
+          "type": "number",
+          "minimum": 0
+        },
+        "WallThickness": {
+          "description": "",
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "Form",
+        "Width",
+        "Height",
+        "WallThickness"
+      ],
+      "additionalProperties": true
+    },
+    "Coil": {
+      "description": "",
+      "type": "object",
+      "properties": {
+        "Form": {
+          "description": "",
+          "const": "Coil"
+        },
+        "Width": {
+          "description": "",
+          "type": "number",
+          "minimum": 0
+        },
+        "WallThickness": {
+          "description": "",
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "Form",
+        "Width",
+        "WallThickness"
+      ],
+      "additionalProperties": true
     },
     "RoundBar": {
       "description": "",
@@ -137,10 +239,13 @@
         "Diameter": {
           "description": "",
           "type": "number",
-          "minium": 0
+          "minimum": 0
         }
       },
-      "required": ["Form", "Diameter"],
+      "required": [
+        "Form",
+        "Diameter"
+      ],
       "additionalProperties": false
     },
     "HexagonalBar": {
@@ -154,10 +259,13 @@
         "Diameter": {
           "description": "",
           "type": "number",
-          "minium": 0
+          "minimum": 0
         }
       },
-      "required": ["Form", "Diameter"],
+      "required": [
+        "Form",
+        "Diameter"
+      ],
       "additionalProperties": false
     },
     "FlatBar": {
@@ -171,15 +279,19 @@
         "Width": {
           "description": "",
           "type": "number",
-          "minium": 0
+          "minimum": 0
         },
         "Thickness": {
           "description": "",
           "type": "number",
-          "minium": 0
+          "minimum": 0
         }
       },
-      "required": ["Form", "Width", "Thickness"],
+      "required": [
+        "Form",
+        "Width",
+        "Thickness"
+      ],
       "additionalProperties": false
     },
     "Other": {
@@ -195,12 +307,19 @@
           "type": "string"
         }
       },
-      "required": ["Form", "Description"],
+      "required": [
+        "Form",
+        "Description"
+      ],
       "additionalProperties": false
     },
     "ProductDescription": {
       "type": "object",
       "oneOf": [
+        {
+          "description": "",
+          "$ref": "#/definitions/Tube"
+        },
         {
           "description": "",
           "$ref": "#/definitions/RectangularTube"
@@ -212,6 +331,14 @@
         {
           "description": "",
           "$ref": "#/definitions/Pipe"
+        },
+        {
+          "description": "",
+          "$ref": "#/definitions/RectangularPipe"
+        },
+        {
+          "description": "",
+          "$ref": "#/definitions/Coil"
         },
         {
           "description": "",
@@ -253,12 +380,22 @@
         },
         "VAT_Id": {
           "type": "string",
-          "minLength": 9,
-          "maxLength": 11
+          "minLength": 4,
+          "maxLength": 15
         },
         "Email": {
           "type": "string",
           "format": "email"
+        },
+        "CertificateLanguage": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["EN", "DE", "FR", "PL"]
+          },
+          "minItems": 1,
+          "maxItems": 3,
+          "uniqueItems": true
         },
         "AdditionalInformation": {
           "description": "Each entry to the array is rendered as a new line in HTML and PDF",
@@ -309,7 +446,9 @@
           "type": "string"
         }
       },
-      "required": ["Value"],
+      "required": [
+        "Value"
+      ],
       "additionalProperties": false
     }
   },
@@ -332,10 +471,16 @@
         "state": {
           "description": "",
           "type": "string",
-          "enum": ["draft", "valid", "cancelled"]
+          "enum": [
+            "draft",
+            "valid",
+            "cancelled"
+          ]
         }
       },
-      "required": ["id"]
+      "required": [
+        "id"
+      ]
     },
     "Certificate": {
       "description": "",
@@ -524,7 +669,12 @@
             },
             "additionalProperties": false
           },
-          "required": ["B01", "B02", "B07", "B08"],
+          "required": [
+            "B01",
+            "B02",
+            "B07",
+            "B08"
+          ],
           "additionalProperties": false
         },
         "Inspection": {
@@ -671,7 +821,10 @@
               "properties": {
                 "C70": {
                   "description": "The metallurgic process, which is restricted to 2 types: Y = Basic oxygen process, E = Electric furnace",
-                  "enum": ["Y", "E"]
+                  "enum": [
+                    "Y",
+                    "E"
+                  ]
                 },
                 "C71": {
                   "description": "Share of element",
@@ -845,7 +998,10 @@
               "additionalProperties": false
             }
           },
-          "required": ["C00", "ChemicalComposition"],
+          "required": [
+            "C00",
+            "ChemicalComposition"
+          ],
           "additionalProperties": false
         },
         "OtherTests": {
@@ -928,7 +1084,6 @@
                 "DoCNumber"
               ]
             },
-
             "SupplementaryInformation": {
               "type": "object",
               "propertyNames": {
@@ -941,7 +1096,11 @@
               }
             }
           },
-          "required": ["Z01", "Z02", "Z04"],
+          "required": [
+            "Z01",
+            "Z02",
+            "Z04"
+          ],
           "additionalProperties": false
         }
       }
