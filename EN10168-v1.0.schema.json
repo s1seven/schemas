@@ -25,7 +25,8 @@
         }
       },
       "required": [
-        "Key"
+        "Key",
+        "Value"
       ],
       "additionalProperties": false
     },
@@ -46,11 +47,13 @@
         "Minimum": {
           "description": "The minimum if defined by the product specification, otherwise the element must not provided.",
           "type": "number",
-          "minimum": 0
+          "minimum": 0,
+          "maximum": 1
         },
         "Maximum": {
-          "description": "The maxium as defined by the product specification.",
+          "description": "The maximum as defined by the product specification.",
           "type": "number",
+          "minimum": 0,
           "maximum": 1
         }
       },
@@ -391,7 +394,12 @@
           "type": "array",
           "items": {
             "type": "string",
-            "enum": ["EN", "DE", "FR", "PL"]
+            "enum": [
+              "EN",
+              "DE",
+              "FR",
+              "PL"
+            ]
           },
           "minItems": 1,
           "maxItems": 3,
@@ -403,12 +411,6 @@
           "items": {
             "type": "string"
           }
-        },
-        "Logo": {
-          "description": "The logo as base64 encoded png file. The maximum size is <TBD>.",
-          "type": "string",
-          "contentEncoding": "base64",
-          "contentMediaType": "image/png"
         }
       },
       "required": [
@@ -510,8 +512,10 @@
               "type": "string"
             },
             "A04": {
-              "description": "The mark of the manufacturer",
-              "type": "string"
+              "description": "The mark of the manufacturer as base64 png file. The maximum size is <TBD>",
+              "type": "string",
+              "contentEncoding": "base64",
+              "contentMediaType": "image/png"
             },
             "A05": {
               "description": "The originator of the document, not necessarily equal to A01",
@@ -539,7 +543,7 @@
               "type": "string"
             },
             "A08": {
-              "description": "Manufactureres work number",
+              "description": "Manufacturer's work number",
               "type": "string"
             },
             "A09": {
@@ -1008,7 +1012,7 @@
           "type": "object",
           "properties": {
             "D01": {
-              "description": "Marking and identification, surface appearence, shape and dimensional properties",
+              "description": "Marking and identification, surface appearance, shape and dimensional properties",
               "type": "string"
             },
             "NonDestructiveTests": {
