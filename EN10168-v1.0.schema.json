@@ -71,7 +71,7 @@
           "description": "",
           "const": "Tube"
         },
-        "SideLength": {
+        "OuterDiameter": {
           "description": "",
           "type": "number",
           "minimum": 0
@@ -84,7 +84,7 @@
       },
       "required": [
         "Form",
-        "SideLength",
+        "OuterDiameter",
         "WallThickness"
       ],
       "additionalProperties": false
@@ -402,7 +402,7 @@
             ]
           },
           "minItems": 1,
-          "maxItems": 3,
+          "maxItems": 2,
           "uniqueItems": true
         },
         "AdditionalInformation": {
@@ -561,6 +561,10 @@
                 }
               },
               "additionalProperties": false
+            },
+            "A97": {
+              "description": "The position number in the order",
+              "type": "number"
             },
             "A98": {
               "description": "A custom field for the delivery note number",
