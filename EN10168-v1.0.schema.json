@@ -9,6 +9,7 @@
   "$id": "https://schemas.en10204.io/EN10168-v1.0.schema.json#",
   "definitions": {
     "KeyValueObject": {
+      "title": "KeyValueObject",
       "type": "object",
       "properties": {
         "Key": {
@@ -24,13 +25,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "Key",
-        "Value"
-      ],
+      "required": ["Key", "Value"],
       "additionalProperties": false
     },
+    "Language": {
+      "title": "Language",
+      "type": "string",
+      "enum": ["EN", "DE", "FR", "PL"]
+    },
     "ChemicalElement": {
+      "title": "ChemicalElement",
       "type": "object",
       "description": "The chemical elements of the product.",
       "properties": {
@@ -57,13 +61,11 @@
           "maximum": 1
         }
       },
-      "required": [
-        "Symbol",
-        "Actual"
-      ],
+      "required": ["Symbol", "Actual"],
       "additionalProperties": false
     },
     "Tube": {
+      "title": "Tube",
       "description": "",
       "type": "object",
       "properties": {
@@ -83,14 +85,11 @@
           "minimum": 0
         }
       },
-      "required": [
-        "Form",
-        "OuterDiameter",
-        "WallThickness"
-      ],
+      "required": ["Form", "OuterDiameter", "WallThickness"],
       "additionalProperties": false
     },
     "QuadraticTube": {
+      "title": "QuadraticTube",
       "description": "",
       "type": "object",
       "properties": {
@@ -110,14 +109,11 @@
           "minimum": 0
         }
       },
-      "required": [
-        "Form",
-        "SideLength",
-        "WallThickness"
-      ],
+      "required": ["Form", "SideLength", "WallThickness"],
       "additionalProperties": false
     },
     "RectangularTube": {
+      "title": "RectangularTube",
       "description": "",
       "type": "object",
       "properties": {
@@ -142,15 +138,11 @@
           "minimum": 0
         }
       },
-      "required": [
-        "Form",
-        "Width",
-        "Height",
-        "WallThickness"
-      ],
+      "required": ["Form", "Width", "Height", "WallThickness"],
       "additionalProperties": false
     },
     "Pipe": {
+      "title": "Pipe",
       "description": "",
       "type": "object",
       "properties": {
@@ -170,14 +162,11 @@
           "minimum": 0
         }
       },
-      "required": [
-        "Form",
-        "SideLength",
-        "WallThickness"
-      ],
+      "required": ["Form", "SideLength", "WallThickness"],
       "additionalProperties": false
     },
     "RectangularPipe": {
+      "title": "RectangularPipe",
       "description": "",
       "type": "object",
       "properties": {
@@ -202,15 +191,11 @@
           "minimum": 0
         }
       },
-      "required": [
-        "Form",
-        "Width",
-        "Height",
-        "WallThickness"
-      ],
+      "required": ["Form", "Width", "Height", "WallThickness"],
       "additionalProperties": true
     },
     "Coil": {
+      "title": "Coil",
       "description": "",
       "type": "object",
       "properties": {
@@ -230,14 +215,11 @@
           "minimum": 0
         }
       },
-      "required": [
-        "Form",
-        "Width",
-        "WallThickness"
-      ],
+      "required": ["Form", "Width", "WallThickness"],
       "additionalProperties": true
     },
     "RoundBar": {
+      "title": "RoundBar",
       "description": "",
       "type": "object",
       "properties": {
@@ -252,13 +234,11 @@
           "minimum": 0
         }
       },
-      "required": [
-        "Form",
-        "Diameter"
-      ],
+      "required": ["Form", "Diameter"],
       "additionalProperties": false
     },
     "HexagonalBar": {
+      "title": "HexagonalBar",
       "description": "",
       "type": "object",
       "properties": {
@@ -273,13 +253,11 @@
           "minimum": 0
         }
       },
-      "required": [
-        "Form",
-        "Diameter"
-      ],
+      "required": ["Form", "Diameter"],
       "additionalProperties": false
     },
     "FlatBar": {
+      "title": "FlatBar",
       "description": "",
       "type": "object",
       "properties": {
@@ -299,14 +277,11 @@
           "minimum": 0
         }
       },
-      "required": [
-        "Form",
-        "Width",
-        "Thickness"
-      ],
+      "required": ["Form", "Width", "Thickness"],
       "additionalProperties": false
     },
     "Other": {
+      "title": "Other",
       "description": "",
       "type": "object",
       "properties": {
@@ -320,13 +295,11 @@
           "type": "string"
         }
       },
-      "required": [
-        "Form",
-        "Description"
-      ],
+      "required": ["Form", "Description"],
       "additionalProperties": false
     },
     "ProductDescription": {
+      "title": "ProductDescription",
       "oneOf": [
         {
           "$ref": "#/definitions/Tube"
@@ -361,6 +334,7 @@
       ]
     },
     "Company": {
+      "title": "Company",
       "type": "object",
       "properties": {
         "CompanyName": {
@@ -392,13 +366,7 @@
         "CertificateLanguage": {
           "type": "array",
           "items": {
-            "type": "string",
-            "enum": [
-              "EN",
-              "DE",
-              "FR",
-              "PL"
-            ]
+            "$ref": "#/definitions/Language"
           },
           "minItems": 1,
           "maxItems": 2,
@@ -423,6 +391,7 @@
       "additionalProperties": true
     },
     "CommercialTransaction": {
+      "title": "CommercialTransaction",
       "description": "",
       "type": "object",
       "properties": {
@@ -478,12 +447,10 @@
           "type": "string"
         },
         "SupplementaryInformation": {
+          "title": "CommercialTransactionSupplementaryInformation",
           "type": "object",
-          "propertyNames": {
-            "pattern": "A1[0-9]|A[2-8][0-9]|A[2-9][0-7]"
-          },
           "patternProperties": {
-            "": {
+            "A1[0-9]|A[2-8][0-9]|A[2-9][0-7]": {
               "$ref": "#/definitions/KeyValueObject"
             }
           },
@@ -505,6 +472,7 @@
       "additionalProperties": false
     },
     "Measurement": {
+      "title": "Measurement",
       "type": "object",
       "description": "Measured Values in a structured fashion for easy processing and rendering of data",
       "properties": {
@@ -529,20 +497,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "Value"
-      ],
+      "required": ["Value"],
       "additionalProperties": false
     },
     "ChemicalComposition": {
+      "title": "ChemicalComposition",
       "type": "object",
       "properties": {
         "C70": {
           "description": "The metallurgic process, which is restricted to 2 types: Y = Basic oxygen process, E = Electric furnace",
-          "enum": [
-            "Y",
-            "E"
-          ]
+          "enum": ["Y", "E"]
         },
         "C71": {
           "description": "Share of element",
@@ -701,12 +665,10 @@
           "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
         },
         "SupplementaryInformation": {
+          "title": "ChemicalCompositionSupplementaryInformation",
           "type": "object",
-          "propertyNames": {
-            "pattern": "^C11[0-9]"
-          },
           "patternProperties": {
-            "": {
+            "C[7-9][0-9]|C[1][0][0-9]": {
               "$ref": "#/definitions/KeyValueObject"
             }
           },
@@ -716,6 +678,7 @@
       "additionalProperties": false
     },
     "CertificateProductDescription": {
+      "title": "CertificateProductDescription",
       "type": "object",
       "properties": {
         "B01": {
@@ -802,27 +765,21 @@
           "type": "number"
         },
         "SupplementaryInformation": {
+          "title": "CertificateProductDescriptionSupplementaryInformation",
           "type": "object",
-          "propertyNames": {
-            "pattern": "B1[4-9]|B[2-9][0-9]"
-          },
           "patternProperties": {
-            "": {
+            "B1[4-9]|B[2-9][0-9]": {
               "$ref": "#/definitions/KeyValueObject"
             }
           },
           "additionalProperties": false
         }
       },
-      "required": [
-        "B01",
-        "B02",
-        "B07",
-        "B08"
-      ],
+      "required": ["B01", "B02", "B07", "B08"],
       "additionalProperties": false
     },
     "Inspection": {
+      "title": "Inspection",
       "type": "object",
       "properties": {
         "C00": {
@@ -842,18 +799,17 @@
           "type": "string"
         },
         "SupplementaryInformation": {
+          "title": "InspectionSupplementaryInformation",
           "type": "object",
-          "propertyNames": {
-            "pattern": "^C0[4-9]"
-          },
           "patternProperties": {
-            "": {
+            "^C0[4-9]": {
               "$ref": "#/definitions/KeyValueObject"
             }
           },
           "additionalProperties": false
         },
         "TensileTest": {
+          "title": "TensileTest",
           "type": "object",
           "properties": {
             "C10": {
@@ -873,12 +829,10 @@
               "allOf": [{ "$ref": "#/definitions/Measurement" }]
             },
             "SupplementaryInformation": {
+              "title": "TensileTestSupplementaryInformation",
               "type": "object",
-              "propertyNames": {
-                "pattern": "^C1[4-9]|C2[0-9]"
-              },
               "patternProperties": {
-                "": {
+                "^C1[4-9]|C2[0-9]": {
                   "$ref": "#/definitions/KeyValueObject"
                 }
               }
@@ -886,6 +840,7 @@
           }
         },
         "HardnessTest": {
+          "title": "HardnessTest",
           "type": "object",
           "properties": {
             "C30": {
@@ -904,12 +859,10 @@
               "allOf": [{ "$ref": "#/definitions/Measurement" }]
             },
             "SupplementaryInformation": {
+              "title": "HardnessTestSupplementaryInformation",
               "type": "object",
-              "propertyNames": {
-                "pattern": "^C3[3-9]"
-              },
               "patternProperties": {
-                "": {
+                "^C3[3-9]": {
                   "$ref": "#/definitions/KeyValueObject"
                 }
               }
@@ -917,6 +870,7 @@
           }
         },
         "NotchedBarImpactTest": {
+          "title": "NotchedBarImpactTest",
           "type": "object",
           "properties": {
             "C40": {
@@ -939,12 +893,10 @@
               "allOf": [{ "$ref": "#/definitions/Measurement" }]
             },
             "SupplementaryInformation": {
+              "title": "NotchedBarImpactTestSupplementaryInformation",
               "type": "object",
-              "propertyNames": {
-                "pattern": "^C4[4-9]"
-              },
               "patternProperties": {
-                "": {
+                "^C4[4-9]": {
                   "$ref": "#/definitions/KeyValueObject"
                 }
               }
@@ -952,12 +904,10 @@
           }
         },
         "OtherMechanicalTests": {
+          "title": "OtherMechanicalTests",
           "type": "object",
-          "propertyNames": {
-            "pattern": "^C[5-6][0-9]"
-          },
           "patternProperties": {
-            "": {
+            "^C[5-6][0-9]": {
               "$ref": "#/definitions/KeyValueObject"
             }
           }
@@ -966,13 +916,11 @@
           "$ref": "#/definitions/ChemicalComposition"
         }
       },
-      "required": [
-        "C00",
-        "ChemicalComposition"
-      ],
+      "required": ["C00", "ChemicalComposition"],
       "additionalProperties": false
     },
     "Validation": {
+      "title": "Validation",
       "type": "object",
       "properties": {
         "Z01": {
@@ -1011,30 +959,19 @@
               "type": "string"
             }
           },
-          "required": [
-            "CE_Image",
-            "NotifiedBodyNumber",
-            "DoCYear",
-            "DoCNumber"
-          ]
+          "required": ["CE_Image", "NotifiedBodyNumber", "DoCYear", "DoCNumber"]
         },
         "SupplementaryInformation": {
+          "title": "ValidationSupplementaryInformation",
           "type": "object",
-          "propertyNames": {
-            "pattern": "Z0[5-9]|Z[1-9][0-9]"
-          },
           "patternProperties": {
-            "": {
+            "Z0[5-9]|Z[1-9][0-9]": {
               "$ref": "#/definitions/KeyValueObject"
             }
           }
         }
       },
-      "required": [
-        "Z01",
-        "Z02",
-        "Z04"
-      ],
+      "required": ["Z01", "Z02", "Z04"],
       "additionalProperties": false
     }
   },
@@ -1042,6 +979,7 @@
   "type": "object",
   "properties": {
     "metadata": {
+      "title": "metadata",
       "description": "",
       "type": "object",
       "properties": {
@@ -1057,16 +995,10 @@
         "state": {
           "description": "",
           "type": "string",
-          "enum": [
-            "draft",
-            "valid",
-            "cancelled"
-          ]
+          "enum": ["draft", "valid", "cancelled"]
         }
       },
-      "required": [
-        "id"
-      ]
+      "required": ["id"]
     },
     "Certificate": {
       "description": "",
@@ -1089,6 +1021,7 @@
           "$ref": "#/definitions/Inspection"
         },
         "OtherTests": {
+          "title": "OtherTests",
           "type": "object",
           "properties": {
             "D01": {
@@ -1096,24 +1029,20 @@
               "type": "string"
             },
             "NonDestructiveTests": {
+              "title": "NonDestructiveTests",
               "type": "object",
-              "propertyNames": {
-                "pattern": "^D[0][2-9]|^D[1-4]D[0-9]"
-              },
               "patternProperties": {
-                "": {
+                "^D[0][2-9]|^D[1-4]D[0-9]": {
                   "$ref": "#/definitions/KeyValueObject"
                 }
               },
               "additionalProperties": false
             },
             "SupplementaryInformation": {
+              "title": "OtherTestsSupplementaryInformation",
               "type": "object",
-              "propertyNames": {
-                "pattern": "^D[5-9][0-9]"
-              },
               "patternProperties": {
-                "": {
+                "^D[5-9][0-9]": {
                   "$ref": "#/definitions/KeyValueObject"
                 }
               },
