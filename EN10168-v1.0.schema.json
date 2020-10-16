@@ -25,7 +25,23 @@
           "type": "string"
         }
       },
-      "required": ["Key", "Value"],
+      "required": ["Key"],
+      "additionalProperties": false
+    },
+    "SupplementaryInformation": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        }
+      },
+      "required": ["key", "value"],
       "additionalProperties": false
     },
     "Language": {
@@ -298,8 +314,8 @@
       "required": ["Form", "Description"],
       "additionalProperties": false
     },
-    "ProductDescription": {
-      "title": "ProductDescription",
+    "ProductShape": {
+      "title": "ProductShape",
       "oneOf": [
         {
           "$ref": "#/definitions/Tube"
@@ -414,8 +430,8 @@
           "contentMediaType": "image/png"
         },
         "A05": {
+          "allOf": [{ "$ref": "#/definitions/Company" }],
           "description": "The originator of the document, not necessarily equal to A01",
-          "type": "string",
           "default": "Factory Production Control"
         },
         "A06": {
@@ -449,12 +465,22 @@
         "SupplementaryInformation": {
           "title": "CommercialTransactionSupplementaryInformation",
           "type": "object",
+          "propertyNames": {
+            "pattern": "^A1[0-9]|^A[2-8][0-9]|^A[2-9][0-7]"
+          },
           "patternProperties": {
             "A1[0-9]|A[2-8][0-9]|A[2-9][0-7]": {
-              "$ref": "#/definitions/KeyValueObject"
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SupplementaryInformation"
+                },
+                {
+                  "$ref": "#/definitions/KeyValueObject"
+                }
+              ]
             }
           },
-          "additionalProperties": false
+          "additionalProperties": true
         },
         "A97": {
           "description": "The position number in the order",
@@ -667,18 +693,28 @@
         "SupplementaryInformation": {
           "title": "ChemicalCompositionSupplementaryInformation",
           "type": "object",
+          "propertyNames": {
+            "pattern": "^C[7-9][0-9]|^C[1][0][0-9]"
+          },
           "patternProperties": {
             "C[7-9][0-9]|C[1][0][0-9]": {
-              "$ref": "#/definitions/KeyValueObject"
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SupplementaryInformation"
+                },
+                {
+                  "$ref": "#/definitions/KeyValueObject"
+                }
+              ]
             }
           },
-          "additionalProperties": false
+          "additionalProperties": true
         }
       },
       "additionalProperties": false
     },
-    "CertificateProductDescription": {
-      "title": "CertificateProductDescription",
+    "ProductDescription": {
+      "title": "ProductDescription",
       "type": "object",
       "properties": {
         "B01": {
@@ -745,7 +781,7 @@
           "type": "number"
         },
         "B09": {
-          "allOf": [{ "$ref": "#/definitions/ProductDescription" }],
+          "allOf": [{ "$ref": "#/definitions/ProductShape" }],
           "description": "Product type and its describing dimensional parameters"
         },
         "B10": {
@@ -765,11 +801,21 @@
           "type": "number"
         },
         "SupplementaryInformation": {
-          "title": "CertificateProductDescriptionSupplementaryInformation",
+          "title": "ProductDescriptionSupplementaryInformation",
           "type": "object",
+          "propertyNames": {
+            "pattern": "^B1[4-9]|^B[2-9][0-9]"
+          },
           "patternProperties": {
-            "B1[4-9]|B[2-9][0-9]": {
-              "$ref": "#/definitions/KeyValueObject"
+            "^B1[4-9]|^B[2-9][0-9]": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SupplementaryInformation"
+                },
+                {
+                  "$ref": "#/definitions/KeyValueObject"
+                }
+              ]
             }
           },
           "additionalProperties": false
@@ -801,9 +847,19 @@
         "SupplementaryInformation": {
           "title": "InspectionSupplementaryInformation",
           "type": "object",
+          "propertyNames": {
+            "pattern": "^C0[4-9]"
+          },
           "patternProperties": {
             "^C0[4-9]": {
-              "$ref": "#/definitions/KeyValueObject"
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SupplementaryInformation"
+                },
+                {
+                  "$ref": "#/definitions/KeyValueObject"
+                }
+              ]
             }
           },
           "additionalProperties": false
@@ -831,9 +887,19 @@
             "SupplementaryInformation": {
               "title": "TensileTestSupplementaryInformation",
               "type": "object",
+              "propertyNames": {
+                "pattern": "^C1[4-9]|^C2[0-9]"
+              },
               "patternProperties": {
-                "^C1[4-9]|C2[0-9]": {
-                  "$ref": "#/definitions/KeyValueObject"
+                "^C1[4-9]|^C2[0-9]": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/definitions/SupplementaryInformation"
+                    },
+                    {
+                      "$ref": "#/definitions/KeyValueObject"
+                    }
+                  ]
                 }
               }
             }
@@ -861,9 +927,19 @@
             "SupplementaryInformation": {
               "title": "HardnessTestSupplementaryInformation",
               "type": "object",
+              "propertyNames": {
+                "pattern": "^C3[3-9]"
+              },
               "patternProperties": {
                 "^C3[3-9]": {
-                  "$ref": "#/definitions/KeyValueObject"
+                  "oneOf": [
+                    {
+                      "$ref": "#/definitions/SupplementaryInformation"
+                    },
+                    {
+                      "$ref": "#/definitions/KeyValueObject"
+                    }
+                  ]
                 }
               }
             }
@@ -895,9 +971,19 @@
             "SupplementaryInformation": {
               "title": "NotchedBarImpactTestSupplementaryInformation",
               "type": "object",
+              "propertyNames": {
+                "pattern": "^C4[4-9]"
+              },
               "patternProperties": {
                 "^C4[4-9]": {
-                  "$ref": "#/definitions/KeyValueObject"
+                  "oneOf": [
+                    {
+                      "$ref": "#/definitions/SupplementaryInformation"
+                    },
+                    {
+                      "$ref": "#/definitions/KeyValueObject"
+                    }
+                  ]
                 }
               }
             }
@@ -906,9 +992,19 @@
         "OtherMechanicalTests": {
           "title": "OtherMechanicalTests",
           "type": "object",
+          "propertyNames": {
+            "pattern": "^C[5-6][0-9]"
+          },
           "patternProperties": {
             "^C[5-6][0-9]": {
-              "$ref": "#/definitions/KeyValueObject"
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SupplementaryInformation"
+                },
+                {
+                  "$ref": "#/definitions/KeyValueObject"
+                }
+              ]
             }
           }
         },
@@ -964,9 +1060,19 @@
         "SupplementaryInformation": {
           "title": "ValidationSupplementaryInformation",
           "type": "object",
+          "propertyNames": {
+            "pattern": "^Z0[5-9]|^Z[1-9][0-9]"
+          },
           "patternProperties": {
-            "Z0[5-9]|Z[1-9][0-9]": {
-              "$ref": "#/definitions/KeyValueObject"
+            "^Z0[5-9]|^Z[1-9][0-9]": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/SupplementaryInformation"
+                },
+                {
+                  "$ref": "#/definitions/KeyValueObject"
+                }
+              ]
             }
           }
         }
@@ -1015,7 +1121,7 @@
           "$ref": "#/definitions/CommercialTransaction"
         },
         "ProductDescription": {
-          "$ref": "#/definitions/CertificateProductDescription"
+          "$ref": "#/definitions/ProductDescription"
         },
         "Inspection": {
           "$ref": "#/definitions/Inspection"
@@ -1032,8 +1138,18 @@
               "title": "NonDestructiveTests",
               "type": "object",
               "patternProperties": {
+                "propertyNames": {
+                  "pattern": "^D[0][2-9]|^D[1-4]D[0-9]"
+                },
                 "^D[0][2-9]|^D[1-4]D[0-9]": {
-                  "$ref": "#/definitions/KeyValueObject"
+                  "oneOf": [
+                    {
+                      "$ref": "#/definitions/SupplementaryInformation"
+                    },
+                    {
+                      "$ref": "#/definitions/KeyValueObject"
+                    }
+                  ]
                 }
               },
               "additionalProperties": false
@@ -1041,9 +1157,19 @@
             "SupplementaryInformation": {
               "title": "OtherTestsSupplementaryInformation",
               "type": "object",
+              "propertyNames": {
+                "pattern": "^D[5-9][0-9]"
+              },
               "patternProperties": {
                 "^D[5-9][0-9]": {
-                  "$ref": "#/definitions/KeyValueObject"
+                  "oneOf": [
+                    {
+                      "$ref": "#/definitions/SupplementaryInformation"
+                    },
+                    {
+                      "$ref": "#/definitions/KeyValueObject"
+                    }
+                  ]
                 }
               },
               "additionalProperties": false
