@@ -511,8 +511,7 @@
         "properties": {
           "DataLevel": {
             "type": "string",
-            "const": "A",
-            "default": "A"
+            "const": "A"
           }
         }
       },
@@ -522,8 +521,7 @@
         "properties": {
           "DataLevel": {
             "type": "string",
-            "const": "B",
-            "default": "B"
+            "const": "B"
           },
           "Data": {
             "$ref": "#/definitions/HigherDataLevel"
@@ -537,8 +535,7 @@
         "properties": {
           "DataLevel": {
             "type": "string",
-            "const": "B",
-            "default": "B"
+            "const": "C"
           },
           "Data": {
             "$ref": "#/definitions/HigherDataLevel"
