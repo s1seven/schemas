@@ -414,8 +414,8 @@
           "contentMediaType": "image/png"
         },
         "A05": {
-          "allOf": [{ "$ref": "#/definitions/Company" }],
           "description": "The originator of the document, not necessarily equal to A01",
+          "type": "string",
           "default": "Factory Production Control"
         },
         "A06": {
