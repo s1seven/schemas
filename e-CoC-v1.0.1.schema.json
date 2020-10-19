@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://schema.en10204.io/e-CoC-v1.0.1.schema.json",
+    "$id": "https://schemas.en10204.io/e-CoC-v1.0.1.schema.json",
     "type": "object",
     "title": "eCoC",
     "description": "electronicCertificateOfConformity",
@@ -351,7 +351,7 @@
             "$ref": "https://e-coc.org/schema/v1.0.0/MaterialCertification.json#/definitions/MaterialTest"
           },
           "ChemicalAnalysis": {
-              "$ref": "https://schema.en10204.io/ChemicalAnalysis-v1.0.0.schema.json#ChemicalAnalysis"
+            "$ref": "https://schemas.en10204.io/ChemicalAnalysis-v1.0.schema.json#/definitions/ChemicalAnalysis"
           }
         },
         "required": []
@@ -511,7 +511,8 @@
         "properties": {
           "DataLevel": {
             "type": "string",
-            "const": "A"
+            "const": "A",
+            "default": "A"
           }
         }
       },
@@ -521,7 +522,8 @@
         "properties": {
           "DataLevel": {
             "type": "string",
-            "const": "B"
+            "const": "B",
+            "default": "B"
           },
           "Data": {
             "$ref": "#/definitions/HigherDataLevel"
@@ -535,7 +537,8 @@
         "properties": {
           "DataLevel": {
             "type": "string",
-            "const": "C"
+            "const": "B",
+            "default": "B"
           },
           "Data": {
             "$ref": "#/definitions/HigherDataLevel"
