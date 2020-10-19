@@ -28,22 +28,6 @@
       "required": ["Key"],
       "additionalProperties": false
     },
-    "SupplementaryInformation": {
-      "type": "object",
-      "properties": {
-        "key": {
-          "type": "string"
-        },
-        "value": {
-          "type": "string"
-        },
-        "unit": {
-          "type": "string"
-        }
-      },
-      "required": ["key", "value"],
-      "additionalProperties": false
-    },
     "Language": {
       "title": "Language",
       "type": "string",
@@ -470,14 +454,7 @@
           },
           "patternProperties": {
             "A1[0-9]|A[2-8][0-9]|A[2-9][0-7]": {
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/SupplementaryInformation"
-                },
-                {
-                  "$ref": "#/definitions/KeyValueObject"
-                }
-              ]
+              "$ref": "#/definitions/KeyValueObject"
             }
           },
           "additionalProperties": true
@@ -698,14 +675,7 @@
           },
           "patternProperties": {
             "": {
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/SupplementaryInformation"
-                },
-                {
-                  "$ref": "#/definitions/KeyValueObject"
-                }
-              ]
+              "$ref": "#/definitions/KeyValueObject"
             }
           },
           "additionalProperties": true
@@ -808,14 +778,7 @@
           },
           "patternProperties": {
             "^B1[4-9]|^B[2-9][0-9]": {
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/SupplementaryInformation"
-                },
-                {
-                  "$ref": "#/definitions/KeyValueObject"
-                }
-              ]
+              "$ref": "#/definitions/KeyValueObject"
             }
           },
           "additionalProperties": false
@@ -840,14 +803,7 @@
               "pattern": "^D[0][2-9]|^D[1-4]D[0-9]"
             },
             "^D[0][2-9]|^D[1-4]D[0-9]": {
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/SupplementaryInformation"
-                },
-                {
-                  "$ref": "#/definitions/KeyValueObject"
-                }
-              ]
+              "$ref": "#/definitions/KeyValueObject"
             }
           },
           "additionalProperties": false
@@ -860,14 +816,7 @@
           },
           "patternProperties": {
             "^D[5-9][0-9]": {
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/SupplementaryInformation"
-                },
-                {
-                  "$ref": "#/definitions/KeyValueObject"
-                }
-              ]
+              "$ref": "#/definitions/KeyValueObject"
             }
           },
           "additionalProperties": false
@@ -903,14 +852,7 @@
           },
           "patternProperties": {
             "^C0[4-9]": {
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/SupplementaryInformation"
-                },
-                {
-                  "$ref": "#/definitions/KeyValueObject"
-                }
-              ]
+              "$ref": "#/definitions/KeyValueObject"
             }
           },
           "additionalProperties": false
@@ -943,14 +885,7 @@
               },
               "patternProperties": {
                 "^C1[4-9]|^C2[0-9]": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/definitions/SupplementaryInformation"
-                    },
-                    {
-                      "$ref": "#/definitions/KeyValueObject"
-                    }
-                  ]
+                  "$ref": "#/definitions/KeyValueObject"
                 }
               }
             }
@@ -983,14 +918,7 @@
               },
               "patternProperties": {
                 "^C3[3-9]": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/definitions/SupplementaryInformation"
-                    },
-                    {
-                      "$ref": "#/definitions/KeyValueObject"
-                    }
-                  ]
+                  "$ref": "#/definitions/KeyValueObject"
                 }
               }
             }
@@ -1027,14 +955,7 @@
               },
               "patternProperties": {
                 "^C4[4-9]": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/definitions/SupplementaryInformation"
-                    },
-                    {
-                      "$ref": "#/definitions/KeyValueObject"
-                    }
-                  ]
+                  "$ref": "#/definitions/KeyValueObject"
                 }
               }
             }
@@ -1048,14 +969,7 @@
           },
           "patternProperties": {
             "^C[5-6][0-9]": {
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/SupplementaryInformation"
-                },
-                {
-                  "$ref": "#/definitions/KeyValueObject"
-                }
-              ]
+              "$ref": "#/definitions/KeyValueObject"
             }
           }
         },
@@ -1119,14 +1033,7 @@
           },
           "patternProperties": {
             "^Z0[5-9]|^Z[1-9][0-9]": {
-              "oneOf": [
-                {
-                  "$ref": "#/definitions/SupplementaryInformation"
-                },
-                {
-                  "$ref": "#/definitions/KeyValueObject"
-                }
-              ]
+              "$ref": "#/definitions/KeyValueObject"
             }
           }
         }
