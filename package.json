@@ -1,6 +1,6 @@
 {
   "name": "schemas",
-  "version": "1.0.2-0",
+  "version": "1.0.2-1",
   "description": "JSON schemas developed by S1Seven",
   "main": "index.js",
   "scripts": {
