@@ -4,7 +4,7 @@
   "description": "JSON schemas developed by S1Seven",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint ./*.schema.json ./*.js",
+    "lint": "eslint ./*.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "update-version": "node ./update-version",
     "release": "release-it"
