@@ -1,7 +1,5 @@
 On this site JSON schemas developed by S1Seven for the services provided by [en10204.io](https://en10204.io) are published.
 
-[Version: v0.0.1]
-
 ## EN10168
 
 The EN10168-v1.x.schema.json is an implementation of the European Union steel standards of the same name.

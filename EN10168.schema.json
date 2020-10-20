@@ -6,7 +6,7 @@
     "of the License at http://www.apache.org/licenses/LICENSE-2.0"
   ],
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://schemas.en10204.io/EN10168-v1.0.schema.json#",
+  "$id": "https://raw.githubusercontent.com/s1seven/schemas/v1.0.0/EN10168.schema.json",
   "definitions": {
     "KeyValueObject": {
       "title": "KeyValueObject",
@@ -25,13 +25,20 @@
           "type": "string"
         }
       },
-      "required": ["Key"],
+      "required": [
+        "Key"
+      ],
       "additionalProperties": false
     },
     "Language": {
       "title": "Language",
       "type": "string",
-      "enum": ["EN", "DE", "FR", "PL"]
+      "enum": [
+        "EN",
+        "DE",
+        "FR",
+        "PL"
+      ]
     },
     "ChemicalElement": {
       "title": "ChemicalElement",
@@ -61,7 +68,10 @@
           "maximum": 1
         }
       },
-      "required": ["Symbol", "Actual"],
+      "required": [
+        "Symbol",
+        "Actual"
+      ],
       "additionalProperties": false
     },
     "Tube": {
@@ -85,7 +95,11 @@
           "minimum": 0
         }
       },
-      "required": ["Form", "OuterDiameter", "WallThickness"],
+      "required": [
+        "Form",
+        "OuterDiameter",
+        "WallThickness"
+      ],
       "additionalProperties": false
     },
     "QuadraticTube": {
@@ -109,7 +123,11 @@
           "minimum": 0
         }
       },
-      "required": ["Form", "SideLength", "WallThickness"],
+      "required": [
+        "Form",
+        "SideLength",
+        "WallThickness"
+      ],
       "additionalProperties": false
     },
     "RectangularTube": {
@@ -138,7 +156,12 @@
           "minimum": 0
         }
       },
-      "required": ["Form", "Width", "Height", "WallThickness"],
+      "required": [
+        "Form",
+        "Width",
+        "Height",
+        "WallThickness"
+      ],
       "additionalProperties": false
     },
     "Pipe": {
@@ -162,7 +185,11 @@
           "minimum": 0
         }
       },
-      "required": ["Form", "SideLength", "WallThickness"],
+      "required": [
+        "Form",
+        "SideLength",
+        "WallThickness"
+      ],
       "additionalProperties": false
     },
     "RectangularPipe": {
@@ -191,7 +218,12 @@
           "minimum": 0
         }
       },
-      "required": ["Form", "Width", "Height", "WallThickness"],
+      "required": [
+        "Form",
+        "Width",
+        "Height",
+        "WallThickness"
+      ],
       "additionalProperties": true
     },
     "Coil": {
@@ -215,7 +247,11 @@
           "minimum": 0
         }
       },
-      "required": ["Form", "Width", "WallThickness"],
+      "required": [
+        "Form",
+        "Width",
+        "WallThickness"
+      ],
       "additionalProperties": true
     },
     "RoundBar": {
@@ -234,7 +270,10 @@
           "minimum": 0
         }
       },
-      "required": ["Form", "Diameter"],
+      "required": [
+        "Form",
+        "Diameter"
+      ],
       "additionalProperties": false
     },
     "HexagonalBar": {
@@ -253,7 +292,10 @@
           "minimum": 0
         }
       },
-      "required": ["Form", "Diameter"],
+      "required": [
+        "Form",
+        "Diameter"
+      ],
       "additionalProperties": false
     },
     "FlatBar": {
@@ -277,7 +319,11 @@
           "minimum": 0
         }
       },
-      "required": ["Form", "Width", "Thickness"],
+      "required": [
+        "Form",
+        "Width",
+        "Thickness"
+      ],
       "additionalProperties": false
     },
     "Other": {
@@ -295,7 +341,10 @@
           "type": "string"
         }
       },
-      "required": ["Form", "Description"],
+      "required": [
+        "Form",
+        "Description"
+      ],
       "additionalProperties": false
     },
     "ProductShape": {
@@ -396,7 +445,11 @@
       "type": "object",
       "properties": {
         "A01": {
-          "allOf": [{ "$ref": "#/definitions/Company" }],
+          "allOf": [
+            {
+              "$ref": "#/definitions/Company"
+            }
+          ],
           "description": "The manufacturer's works which delivers the certificate along the product"
         },
         "A02": {
@@ -419,19 +472,35 @@
           "default": "Factory Production Control"
         },
         "A06": {
-          "allOf": [{ "$ref": "#/definitions/Company" }],
+          "allOf": [
+            {
+              "$ref": "#/definitions/Company"
+            }
+          ],
           "description": "The purchaser of the product and receiver of the certificate"
         },
         "A06.1": {
-          "allOf": [{ "$ref": "#/definitions/Company" }],
+          "allOf": [
+            {
+              "$ref": "#/definitions/Company"
+            }
+          ],
           "description": "The purchaser of the product"
         },
         "A06.2": {
-          "allOf": [{ "$ref": "#/definitions/Company" }],
+          "allOf": [
+            {
+              "$ref": "#/definitions/Company"
+            }
+          ],
           "description": "The consignee of the product"
         },
         "A06.3": {
-          "allOf": [{ "$ref": "#/definitions/Company" }],
+          "allOf": [
+            {
+              "$ref": "#/definitions/Company"
+            }
+          ],
           "description": "The receiver/consignee of the certificate"
         },
         "A07": {
@@ -457,7 +526,7 @@
               "$ref": "#/definitions/KeyValueObject"
             }
           },
-          "additionalProperties": true
+          "additionalProperties": false
         },
         "A97": {
           "description": "The position number in the order",
@@ -500,7 +569,9 @@
           "type": "string"
         }
       },
-      "required": ["Value"],
+      "required": [
+        "Value"
+      ],
       "additionalProperties": false
     },
     "ChemicalComposition": {
@@ -509,163 +580,322 @@
       "properties": {
         "C70": {
           "description": "The metallurgic process, which is restricted to 2 types: Y = Basic oxygen process, E = Electric furnace",
-          "enum": ["Y", "E"]
+          "enum": [
+            "Y",
+            "E"
+          ]
         },
         "C71": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C72": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C73": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C74": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C75": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C76": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C77": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C78": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C79": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C80": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C81": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C82": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C83": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C84": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C85": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C86": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C87": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C88": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C89": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C90": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C91": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C92": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C93": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C94": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C95": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C96": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C97": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C98": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C99": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C100": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C101": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C102": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C103": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C104": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C105": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C106": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C107": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C108": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "C109": {
           "description": "Share of element",
-          "allOf": [{ "$ref": "#/definitions/ChemicalElement" }]
+          "allOf": [
+            {
+              "$ref": "#/definitions/ChemicalElement"
+            }
+          ]
         },
         "SupplementaryInformation": {
           "title": "ChemicalCompositionSupplementaryInformation",
@@ -678,7 +908,7 @@
               "$ref": "#/definitions/KeyValueObject"
             }
           },
-          "additionalProperties": true
+          "additionalProperties": false
         }
       },
       "additionalProperties": false
@@ -751,7 +981,11 @@
           "type": "number"
         },
         "B09": {
-          "allOf": [{ "$ref": "#/definitions/ProductShape" }],
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProductShape"
+            }
+          ],
           "description": "Product type and its describing dimensional parameters"
         },
         "B10": {
@@ -784,7 +1018,12 @@
           "additionalProperties": false
         }
       },
-      "required": ["B01", "B02", "B07", "B08"],
+      "required": [
+        "B01",
+        "B02",
+        "B07",
+        "B08"
+      ],
       "additionalProperties": false
     },
     "OtherTests": {
@@ -867,15 +1106,27 @@
             },
             "C11": {
               "description": "Yield or proof strength",
-              "allOf": [{ "$ref": "#/definitions/Measurement" }]
+              "allOf": [
+                {
+                  "$ref": "#/definitions/Measurement"
+                }
+              ]
             },
             "C12": {
               "description": "Tensile strength",
-              "allOf": [{ "$ref": "#/definitions/Measurement" }]
+              "allOf": [
+                {
+                  "$ref": "#/definitions/Measurement"
+                }
+              ]
             },
             "C13": {
               "description": "Elongation after fracture",
-              "allOf": [{ "$ref": "#/definitions/Measurement" }]
+              "allOf": [
+                {
+                  "$ref": "#/definitions/Measurement"
+                }
+              ]
             },
             "SupplementaryInformation": {
               "title": "TensileTestSupplementaryInformation",
@@ -908,7 +1159,11 @@
             },
             "C32": {
               "description": "The average value of the individual values measured",
-              "allOf": [{ "$ref": "#/definitions/Measurement" }]
+              "allOf": [
+                {
+                  "$ref": "#/definitions/Measurement"
+                }
+              ]
             },
             "SupplementaryInformation": {
               "title": "HardnessTestSupplementaryInformation",
@@ -945,7 +1200,11 @@
             },
             "C43": {
               "description": "Mean value",
-              "allOf": [{ "$ref": "#/definitions/Measurement" }]
+              "allOf": [
+                {
+                  "$ref": "#/definitions/Measurement"
+                }
+              ]
             },
             "SupplementaryInformation": {
               "title": "NotchedBarImpactTestSupplementaryInformation",
@@ -977,7 +1236,10 @@
           "$ref": "#/definitions/ChemicalComposition"
         }
       },
-      "required": ["C00", "ChemicalComposition"],
+      "required": [
+        "C00",
+        "ChemicalComposition"
+      ],
       "additionalProperties": false
     },
     "Validation": {
@@ -1020,7 +1282,12 @@
               "type": "string"
             }
           },
-          "required": ["CE_Image", "NotifiedBodyNumber", "DoCYear", "DoCNumber"]
+          "required": [
+            "CE_Image",
+            "NotifiedBodyNumber",
+            "DoCYear",
+            "DoCNumber"
+          ]
         },
         "SupplementaryInformation": {
           "title": "ValidationSupplementaryInformation",
@@ -1035,7 +1302,11 @@
           }
         }
       },
-      "required": ["Z01", "Z02", "Z04"],
+      "required": [
+        "Z01",
+        "Z02",
+        "Z04"
+      ],
       "additionalProperties": false
     }
   },
@@ -1059,10 +1330,16 @@
         "state": {
           "description": "",
           "type": "string",
-          "enum": ["draft", "valid", "cancelled"]
+          "enum": [
+            "draft",
+            "valid",
+            "cancelled"
+          ]
         }
       },
-      "required": ["id"]
+      "required": [
+        "id"
+      ]
     },
     "Certificate": {
       "description": "",
@@ -1090,9 +1367,12 @@
         "Validation": {
           "$ref": "#/definitions/Validation"
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
-  "required": ["Certificate"],
+  "required": [
+    "Certificate"
+  ],
   "additionalProperties": false
 }
