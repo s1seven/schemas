@@ -17,7 +17,6 @@ const schemaFilePaths = [
 
 (async function (argv) {
   const version = argv[2];
-  // const name = argv[3];
   await Promise.all(
     schemaFilePaths.map(async (filePath) => {
       const schema = JSON.parse(await readFile(filePath));

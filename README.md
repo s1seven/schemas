@@ -2,11 +2,11 @@ On this site JSON schemas developed by S1Seven for the services provided by [en1
 
 ## EN10168
 
-The EN10168-v1.x.schema.json is an implementation of the European Union steel standards of the same name.
+The EN10168.schema.json is an implementation of the European Union steel standards of the same name.
 
 ## E-COC
 
-The e-CoC-vx.x.x.schema.json is a reimplementation of [e-coc.org schema](https://e-coc.org/schema/v1.0.0/e-coc.json).
+The e-CoC.schema.json is a reimplementation of [e-coc.org schema](https://e-coc.org/schema/v1.0.0/e-coc.json).
 
 Following changes were applied :
 
@@ -23,7 +23,7 @@ Following changes were applied :
 }
 ```
 
-- In `EcocData` property replace references union (`DataLevelA`, `DataLevelB`, `DataLevelC`) by `DataLevel`
+- In `EcocData` property references union (`DataLevelA`, `DataLevelB`, `DataLevelC`) replaced by `DataLevel` reference
 
 ```json
 {
