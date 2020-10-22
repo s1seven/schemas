@@ -1309,8 +1309,12 @@
   "title": "Certificate",
   "type": "object",
   "properties": {
-    "metadata": {
-      "title": "metadata",
+    "SchemaReference": {
+      "type": "string",
+      "format": "uri"
+    }, 
+    "DocumentMetadata": {
+      "title": "MetaData",
       "description": "",
       "type": "object",
       "properties": {
