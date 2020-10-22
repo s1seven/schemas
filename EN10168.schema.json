@@ -1345,6 +1345,7 @@
       "description": "",
       "type": "object",
       "required": [
+        "CertificateLanguages",
         "CommercialTransaction",
         "ProductDescription",
         "Inspection",
