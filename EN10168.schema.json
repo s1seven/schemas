@@ -412,15 +412,6 @@
           "type": "string",
           "format": "email"
         },
-        "CertificateLanguage": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Language"
-          },
-          "minItems": 1,
-          "maxItems": 2,
-          "uniqueItems": true
-        },
         "AdditionalInformation": {
           "description": "Each entry to the array is rendered as a new line in HTML and PDF",
           "type": "array",
