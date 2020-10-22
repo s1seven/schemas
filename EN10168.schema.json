@@ -30,15 +30,15 @@
       ],
       "additionalProperties": false
     },
-    "Language": {
-      "title": "Language",
-      "type": "string",
-      "enum": [
-        "EN",
-        "DE",
-        "FR",
-        "PL"
-      ]
+    "CertificateLanguages": {
+      "type": "array",
+      "items": {
+        "enum": ["EN", "DE", "FR", "PL"]
+      },
+      "minItems": 1,
+      "maxItems": 2,
+      "default": "EN",
+      "uniqueItems": true
     },
     "ChemicalElement": {
       "title": "ChemicalElement",
@@ -411,15 +411,6 @@
         "Email": {
           "type": "string",
           "format": "email"
-        },
-        "CertificateLanguage": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Language"
-          },
-          "minItems": 1,
-          "maxItems": 2,
-          "uniqueItems": true
         },
         "AdditionalInformation": {
           "description": "Each entry to the array is rendered as a new line in HTML and PDF",
@@ -1345,6 +1336,7 @@
       "description": "",
       "type": "object",
       "required": [
+        "CertificateLanguages",
         "CommercialTransaction",
         "ProductDescription",
         "Inspection",
@@ -1352,6 +1344,9 @@
         "Validation"
       ],
       "properties": {
+        "CertificateLanguages": {
+          "$ref": "#/definitions/CertificateLanguages"
+        },
         "CommercialTransaction": {
           "$ref": "#/definitions/CommercialTransaction"
         },
