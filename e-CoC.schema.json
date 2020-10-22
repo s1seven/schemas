@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://schemas.en10204.io/e-CoC-v1.0.1.schema.json",
+  "$id": "https://raw.githubusercontent.com/s1seven/schemas/v1.0.2-3/e-CoC.schema.json",
   "type": "object",
   "title": "eCoC",
   "description": "electronicCertificateOfConformity",
@@ -61,7 +61,11 @@
         },
         "ConformityStatus": {
           "type": "string",
-          "enum": ["True", "False", "WithConcessions"]
+          "enum": [
+            "True",
+            "False",
+            "WithConcessions"
+          ]
         },
         "Signature": {
           "type": "object",
@@ -128,7 +132,10 @@
           "$ref": "#/definitions/AddProperties"
         }
       },
-      "required": ["PartyName", "PartyAddress"]
+      "required": [
+        "PartyName",
+        "PartyAddress"
+      ]
     },
     "CompanyIdentifier": {
       "type": "object",
@@ -137,7 +144,13 @@
       "properties": {
         "NameOfIdentifier": {
           "type": "string",
-          "enum": ["DUNS", "VATID", "CageCode", "CustomerNo", "SupplierNo"]
+          "enum": [
+            "DUNS",
+            "VATID",
+            "CageCode",
+            "CustomerNo",
+            "SupplierNo"
+          ]
         },
         "ValueOfIdentifier": {
           "type": "string"
@@ -168,7 +181,12 @@
           "type": "string"
         }
       },
-      "required": ["StreetAddress", "City", "PostalCode", "CountryCode"]
+      "required": [
+        "StreetAddress",
+        "City",
+        "PostalCode",
+        "CountryCode"
+      ]
     },
     "Attachment": {
       "type": "object",
@@ -182,7 +200,9 @@
         },
         "Encoding": {
           "type": "string",
-          "enum": ["base64"]
+          "enum": [
+            "base64"
+          ]
         },
         "Data": {
           "type": "string",
@@ -191,7 +211,10 @@
         "HashAlgorithm": {
           "type": "string",
           "description": "chacksum/Hash algorithm",
-          "enum": ["SHA1", "MD5"]
+          "enum": [
+            "SHA1",
+            "MD5"
+          ]
         },
         "HashValue": {
           "type": "string"
@@ -479,7 +502,11 @@
       "properties": {
         "Direction": {
           "type": "string",
-          "enume": ["Length", "Width", "Height"]
+          "enume": [
+            "Length",
+            "Width",
+            "Height"
+          ]
         },
         "DimValue": {
           "type": "number"
@@ -495,7 +522,11 @@
       "additionalProperties": false,
       "properties": {
         "DataLevel": {
-          "enum": ["A", "B", "C"]
+          "enum": [
+            "A",
+            "B",
+            "C"
+          ]
         },
         "Data": {
           "$ref": "#/definitions/HigherDataLevel"
@@ -507,39 +538,65 @@
       "allOf": [
         {
           "if": {
-            "properties": { "DataLevel": { "const": "A" } }
+            "properties": {
+              "DataLevel": {
+                "const": "A"
+              }
+            }
           },
           "then": {
             "properties": {
-              "Data": { "default": null },
-              "Results": { "default": null }
+              "Data": {
+                "default": null
+              },
+              "Results": {
+                "default": null
+              }
             }
           }
         },
         {
           "if": {
-            "properties": { "DataLevel": { "const": "B" } }
+            "properties": {
+              "DataLevel": {
+                "const": "B"
+              }
+            }
           },
           "then": {
             "properties": {
-              "Data": { "$ref": "#/definitions/HigherDataLevel" },
-              "Results": { "default": null }
+              "Data": {
+                "$ref": "#/definitions/HigherDataLevel"
+              },
+              "Results": {
+                "default": null
+              }
             }
           }
         },
         {
           "if": {
-            "properties": { "DataLevel": { "const": "C" } }
+            "properties": {
+              "DataLevel": {
+                "const": "C"
+              }
+            }
           },
           "then": {
             "properties": {
-              "Data": { "$ref": "#/definitions/HigherDataLevel" },
-              "Results": { "$ref": "#/definitions/Results" }
+              "Data": {
+                "$ref": "#/definitions/HigherDataLevel"
+              },
+              "Results": {
+                "$ref": "#/definitions/Results"
+              }
             }
           }
         }
       ],
-      "required": ["DataLevel"]
+      "required": [
+        "DataLevel"
+      ]
     },
     "DataLevelA": {
       "type": "object",
