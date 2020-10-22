@@ -6,7 +6,7 @@
     "of the License at http://www.apache.org/licenses/LICENSE-2.0"
   ],
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://raw.githubusercontent.com/s1seven/schemas/v1.0.2-3/EN10168.schema.json",
+  "$id": "https://raw.githubusercontent.com/s1seven/schemas/v1.0.2/EN10168.schema.json",
   "definitions": {
     "KeyValueObject": {
       "title": "KeyValueObject",
@@ -33,7 +33,12 @@
     "CertificateLanguages": {
       "type": "array",
       "items": {
-        "enum": ["EN", "DE", "FR", "PL"]
+        "enum": [
+          "EN",
+          "DE",
+          "FR",
+          "PL"
+        ]
       },
       "minItems": 1,
       "maxItems": 2,
