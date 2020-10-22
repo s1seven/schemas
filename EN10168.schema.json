@@ -30,15 +30,15 @@
       ],
       "additionalProperties": false
     },
-    "Language": {
-      "title": "Language",
-      "type": "string",
-      "enum": [
-        "EN",
-        "DE",
-        "FR",
-        "PL"
-      ]
+    "CertificateLanguages": {
+      "type": "array",
+      "items": {
+        "enum": ["EN", "DE", "FR", "PL"]
+      },
+      "minItems": 1,
+      "maxItems": 2,
+      "default": "EN",
+      "uniqueItems": true
     },
     "ChemicalElement": {
       "title": "ChemicalElement",
@@ -1352,6 +1352,9 @@
         "Validation"
       ],
       "properties": {
+        "CertificateLanguages": {
+          "$ref": "#/definitions/CertificateLanguages"
+        },
         "CommercialTransaction": {
           "$ref": "#/definitions/CommercialTransaction"
         },
