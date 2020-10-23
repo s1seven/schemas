@@ -1,6 +1,8 @@
 const fs = require('fs');
 const { promisify } = require('util');
 
+const serverUrl = 'https://raw.githubusercontent.com/s1seven/schemas/';
+
 function readFile(path) {
   return promisify(fs.readFile)(path, 'utf8');
 }
@@ -15,14 +17,18 @@ const schemaFilePaths = [
   'ChemicalAnalysis.schema.json',
 ];
 
-(async function (argv) {
-  const version = argv[2];
+async function updateSchemasVersion(version) {
   await Promise.all(
     schemaFilePaths.map(async (filePath) => {
       const schema = JSON.parse(await readFile(filePath));
       const [schemaName] = filePath.split('.');
-      schema.$id = `https://raw.githubusercontent.com/s1seven/schemas/${version}/${schemaName}.schema.json`;
+      schema.$id = `${serverUrl}/${version}/${schemaName}.schema.json`;
       await writeFile(filePath, JSON.stringify(schema, null, 2));
     })
   );
+}
+
+(async function (argv) {
+  const version = argv[2];
+  await updateSchemasVersion(version);
 })(process.argv);
