@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { promisify } = require('util');
 
-const serverUrl = 'https://raw.githubusercontent.com/s1seven/schemas/';
+const serverUrl = 'https://raw.githubusercontent.com/s1seven/schemas';
 
 function readFile(path) {
   return promisify(fs.readFile)(path, 'utf8');
