@@ -3,14 +3,16 @@ On this site JSON schemas developed by S1Seven for the services provided by [en1
 ## EN10168
 
 The EN10168.schema.json is an implementation of the European Union steel standards of the same name.
+Check the new dedicated (repository)[https://github.com/s1seven/EN10168-schemas].
 
 ## E-COC
 
 The e-CoC.schema.json is a reimplementation of [e-coc.org schema](https://e-coc.org/schema/v1.0.0/e-coc.json).
+Check the new dedicated (repository)[https://github.com/s1seven/E-CoC-schemas].
 
 Following changes were applied :
 
-- In `TechnicalProperties`.`value` property replace `oneOf` by `anyOf` (since can contain anyOf those enumerated types ) and adding the following possible type ( that was used in some example certificates )
+- In `TechnicalProperties`.`value` property replace `oneOf` by `anyOf` (since can contain anyOf those enumerated types) and adding the following possible type (that was used in some example certificates)
 
 ```json
 {
