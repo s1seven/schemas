@@ -1376,7 +1376,8 @@
     }
   },
   "required": [
-    "Certificate"
+    "Certificate",
+    "SchemaReference"
   ],
   "additionalProperties": false
 }
