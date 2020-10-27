@@ -42,7 +42,7 @@
       },
       "minItems": 1,
       "maxItems": 2,
-      "default": "EN",
+      "default": ["EN"],
       "uniqueItems": true
     },
     "ChemicalElement": {
