@@ -10,7 +10,7 @@ The e-CoC.schema.json is a reimplementation of [e-coc.org schema](https://e-coc.
 
 Following changes were applied :
 
-- In `TechnicalProperties`.`value` property replace `oneOf` by `anyOf` and adding the following possible type
+- In `TechnicalProperties`.`value` property replace `oneOf` by `anyOf` (since can contain anyOf those enumerated types ) and adding the following possible type ( that was used in some example certificates )
 
 ```json
 {
@@ -23,7 +23,7 @@ Following changes were applied :
 }
 ```
 
-- In `EcocData` property references union (`DataLevelA`, `DataLevelB`, `DataLevelC`) replaced by `DataLevel` reference
+- In `EcocData` property, the references union (`DataLevelA`, `DataLevelB`, `DataLevelC`) is replaced by `DataLevel` reference, for clarity and easier validation (since properties are not required in `DataLevel` definition in the original version).
 
 ```json
 {
