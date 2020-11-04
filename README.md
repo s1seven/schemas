@@ -1,6 +1,8 @@
 On this site JSON schemas developed by S1Seven for the services provided by [en10204.io](https://en10204.io) are published.
 
 ## EN10168
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fs1seven%2Fschemas.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fs1seven%2Fschemas?ref=badge_shield)
+
 
 The EN10168.schema.json is an implementation of the European Union steel standards of the same name.
 Check the new dedicated (repository)[https://github.com/s1seven/EN10168-schemas].
@@ -80,3 +82,7 @@ Following changes were applied :
   "required": ["DataLevel"]
 }
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fs1seven%2Fschemas.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fs1seven%2Fschemas?ref=badge_large)
